@@ -24,7 +24,7 @@ app.use(function(req, res, next) {
 });
 
 
-// Add routes, both API and view
+// Add routes, both API and view 
 app.use(routes);
 
 // Connect to the Mongo DB

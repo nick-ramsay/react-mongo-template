@@ -1,10 +1,42 @@
+body {
+  background-color:#282c34;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.table-dark {
+  background-color: inherit;
+}
+
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.btn-custom {
+  background-color: #e83e8c;
+  color: white;
+}
+
+.btn-custom:hover {
+  background-color: #cd186b;
+  color: white;
+}
+
+.btn-custom:focus {
+  box-shadow: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -14,14 +46,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {

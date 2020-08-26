@@ -1,6 +1,6 @@
 const express = require("express");
 
-const mongoose = require("mongoose");
+//const mongoose = require("mongoose");
 //const routes = require("./routes");
 
 const PORT = process.env.PORT || 3001;
@@ -25,7 +25,7 @@ app.use(function(req, res, next) {
 
 
 // Add routes, both API and view 
-app.use(routes);
+//app.use(routes);
 
 // Connect to the Mongo DB
 //mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/application-portal", {useNewUrlParser: true, useUnifiedTopology: true});

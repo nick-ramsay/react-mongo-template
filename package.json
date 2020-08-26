@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/nick-ramsay/jwt-sandbox#readme",
   "dependencies": {
+    "core-js": "^3.6.5",
     "express": "^4.17.1",
     "if-env": "^1.0.4",
     "mongoose": "^5.10.0"

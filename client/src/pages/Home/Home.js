@@ -18,10 +18,10 @@ const Home = () => {
                     <div className="row mt-3">
                         <div className="col">
                             <label for="staticEmail2" className="sr-only">Email</label>
-                            <input type="text" placeholder="Enter Test Message Here" />
+                            <textarea type="text" placeholder="Enter Test Message Here" />
                         </div>
-                        <div className="col">
-                            <button type="button" className="btn btn-sm btn-custom">Save Message</button>
+                        <div className="col d-flex">
+                            <button type="button" className="btn btn-sm btn-custom mt-auto mb-auto">Save Message</button>
                         </div>
                     </div>
                 </form>

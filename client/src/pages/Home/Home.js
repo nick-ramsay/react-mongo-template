@@ -1,8 +1,6 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { /*Component, useState, useEffect*/ } from 'react';
 import logo from '../../../src/logo.svg';
 import "./style.css";
-
-const override = "display: block; margin: 0 auto; border-color: indigo;";
 
 const Home = () => {
 

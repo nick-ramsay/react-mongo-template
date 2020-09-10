@@ -8,10 +8,6 @@ body {
   justify-content: center;
 }
 
-.table-dark {
-  background-color: inherit;
-}
-
 .App {
   text-align: center;
   display: flex;
@@ -25,17 +21,39 @@ body {
   pointer-events: none;
 }
 
+.table-dark {
+  background-color: inherit;
+}
+
+.form-control:focus {
+  border-color: #b4b4b4;
+}
+
 .btn-custom {
-  background-color: #e83e8c;
+  background-color: #2EA7C8;
   color: white;
 }
 
 .btn-custom:hover {
-  background-color: #cd186b;
+  background-color: #158EAF;
   color: white;
 }
 
 .btn-custom:focus {
+  box-shadow: none;
+}
+
+.btn-custom-red {
+  background-color: #e83e8c;
+  color: white;
+}
+
+.btn-custom-red:hover {
+  background-color: #cd186b;
+  color: white;
+}
+
+.btn-custom-red:focus {
   box-shadow: none;
 }
 
@@ -50,7 +68,7 @@ body {
 }
 
 .App-link {
-  color: #61dafb;
+  color: #b4b4b4;
 }
 
 @keyframes App-logo-spin {

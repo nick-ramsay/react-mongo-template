@@ -26,7 +26,7 @@ body {
 }
 
 .form-control:focus {
-  border-color: #b4b4b4;
+  border-color: #61dafb;
 }
 
 .btn-custom {
@@ -68,7 +68,7 @@ body {
 }
 
 .App-link {
-  color: #b4b4b4;
+  color: #61dafb;
 }
 
 @keyframes App-logo-spin {

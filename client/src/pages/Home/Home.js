@@ -1,4 +1,5 @@
 import React, { /*Component, useState, useEffect*/ } from 'react';
+import moment from 'moment';
 import logo from '../../../src/logo.svg';
 import "./style.css";
 
@@ -28,11 +29,13 @@ const Home = () => {
             <table className="table table-striped table-dark mt-3">
                 <tbody>
                     <tr className="text-center">
-                        <td>Test Message 1</td>
+                        <td style={{fontStyle:"italic"}}>"Test Message 1"</td>
+                        <td>{moment().format("DD MMMM YYYY h:mm A")}</td>
                         <td><div type="button" className="btn btn-sm btn-custom-red">Delete</div></td>
                     </tr>
                     <tr className="text-center">
-                        <td>Test Message 2</td>
+                        <td style={{fontStyle:"italic"}}>"Test Message 2"</td>
+                        <td>{moment().format("DD MMMM YYYY h:mm A")}</td>
                         <td><div className="btn btn-sm btn-custom-red">Delete</div></td>
                     </tr>
                 </tbody>

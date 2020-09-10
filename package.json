@@ -1,7 +1,7 @@
 {
-  "name": "react-barebones-template",
+  "name": "react-mongo-template",
   "version": "1.0.0",
-  "description": "Testing environment for JSON Web Tokens",
+  "description": "A template used as a starter application for create MERN applications",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

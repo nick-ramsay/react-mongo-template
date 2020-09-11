@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 
 export const useInput = (initialValue) => {
     const [value, setValue] = useState(initialValue);
-    console.log(value);
 
     function handleChange(e) {
         setValue(e.target.value);

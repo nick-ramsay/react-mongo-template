@@ -5,4 +5,8 @@ router
   .route("/create-message")
   .post(rmtControllers.createMessage);
 
+router
+  .route("/find-all-messages")
+  .post(rmtControllers.findAllMessages);
+
 module.exports = router;

@@ -57,6 +57,19 @@ body {
   box-shadow: none;
 }
 
+.deletion-x {
+  color: #e83e8c;
+  border: 2px solid #e83e8c;
+  border-radius: 4%;
+  font-weight: bold;
+}
+
+.deletion-x:hover {
+  color: #cd186b;
+  border: 2px solid #cd186b;
+  cursor: pointer;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

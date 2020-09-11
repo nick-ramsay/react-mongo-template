@@ -7,12 +7,14 @@ import "./style.css";
 
 const Home = () => {
 
-    var [message, setMessage] = useInput("");
+    var [newMessage, setNewMessage] = useInput("");
 
     const saveMessage = () => {
-        API.createMessage(message).then(
-            res => console.log(res.data)
-        );
+        if (message != "") {
+            API.createMessage(message).then(
+                res => console.log(res.data)
+            );
+        }
     };
 
     return (

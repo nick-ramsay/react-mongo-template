@@ -10,8 +10,8 @@ const Home = () => {
     var [newMessage, setNewMessage] = useInput("");
 
     const saveMessage = () => {
-        if (message != "") {
-            API.createMessage(message).then(
+        if (newMessage != "") {
+            API.createMessage(newMessage).then(
                 res => console.log(res.data)
             );
         }
@@ -29,7 +29,7 @@ const Home = () => {
             <form className="mt-3">
                 <div className="form-row text-center">
                     <div className="col">
-                        <input type="text" className="form-control" id="messageInput" name="messageInput" onChange={setMessage} aria-describedby="messageHelp" />
+                        <input type="text" className="form-control" id="messageInput" name="messageInput" onChange={setNewMessage} aria-describedby="messageHelp" />
                     </div>
                 </div>
                 <div className="form-row text-center">

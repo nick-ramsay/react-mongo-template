@@ -1,4 +1,4 @@
-import React, { /*Component, useState,*/useEffect } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import { useInput } from '../../sharedFunctions/sharedFunctions';
 import API from "../../utils/API";
 import moment from 'moment';
@@ -8,27 +8,37 @@ import "./style.css";
 const Home = () => {
 
     var [newMessage, setNewMessage] = useInput("");
-    var [messages, setMessages] = useInput([]);
+    var [messages, setMessages] = useState([]);
 
-    useEffect(() => {
-        console.log("Use effect called...");
-
-        API.findAllMessages().then(
-            res => {
-                //console.log(res.data);
-                setMessages(messages => res.data);
-            }
-        );
-    }, [])
-
+    const renderMessages = () => {
+        API.findAllMessages().then(res => {
+            console.log(res.data);
+            setMessages(messages => res.data);
+        });
+    }
 
     const saveMessage = () => {
         if (newMessage !== "") {
             API.createMessage(newMessage, new Date()).then(
-                res => console.log(res.data)
+                res => console.log(res.data),
+                renderMessages()
             );
         }
     };
+
+    const deleteMessage = (event) => {
+        console.log(event.currentTarget.dataset.message_id);
+        let messageDeletionID = event.currentTarget.dataset.message_id;
+        API.deleteOneMessage(messageDeletionID).then(
+            res => console.log(res.data),
+            renderMessages()
+        );
+    }
+
+    useEffect(() => {
+        console.log("Use effect called...");
+        renderMessages();
+    }, [])
 
     return (
         <div>
@@ -52,32 +62,18 @@ const Home = () => {
                                 </div>
                             </div>
                         </form>
-                        <table className="table table-striped table-dark mt-3">
-                            <tbody>
-                                <tr className="text-center">
-                                    <td style={{ fontStyle: "italic" }}>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pellentesque augue vitae nisl eleifend tincidunt. In condimentum ante nisl, in elementum quam sollicitudin a. Integer maximus sed risus eget imperdiet. Proin at efficitur ligula. Maecenas iaculis erat vitae sem pulvinar ornare. Nam tempus, nisl eu fringilla elementum, massa nisi molestie nunc, sit amet ullamcorper massa nulla nec erat. Duis gravida consectetur diam non suscipit."</td>
-                                    <td>{moment().format("DD MMMM YYYY h:mm A")}</td>
-                                    <td><div className="deletion-x">X</div></td>
-                                </tr>
-                                <tr className="text-center">
-                                    <td style={{ fontStyle: "italic" }}>"Test Message 2"</td>
-                                    <td>{moment().format("DD MMMM YYYY h:mm A")}</td>
-                                    <td><div className="btn btn-sm btn-custom-red">Delete</div></td>
-                                </tr>
-                                <tr className="text-center">
-                                    <td style={{ fontStyle: "italic" }}>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pellentesque augue vitae nisl eleifend tincidunt. In condimentum ante nisl, in elementum quam sollicitudin a. Integer maximus sed risus eget imperdiet. Proin at efficitur ligula. Maecenas iaculis erat vitae sem pulvinar ornare. Nam tempus, nisl eu fringilla elementum, massa nisi molestie nunc, sit amet ullamcorper massa nulla nec erat. Duis gravida consectetur diam non suscipit."</td>
-                                    <td>{moment().format("DD MMMM YYYY h:mm A")}</td>
-                                    <td><div type="button" className="btn btn-sm btn-custom-red">Delete</div></td>
-                                </tr>
-                                {messages.map((message, i) => (
-                                    <tr className="text-center">
-                                        <td style={{ fontStyle: "italic" }}>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi pellentesque augue vitae nisl eleifend tincidunt. In condimentum ante nisl, in elementum quam sollicitudin a. Integer maximus sed risus eget imperdiet. Proin at efficitur ligula. Maecenas iaculis erat vitae sem pulvinar ornare. Nam tempus, nisl eu fringilla elementum, massa nisi molestie nunc, sit amet ullamcorper massa nulla nec erat. Duis gravida consectetur diam non suscipit."</td>
-                                        <td>{moment().format("DD MMMM YYYY h:mm A")}</td>
-                                        <td><div type="button" className="btn btn-sm btn-custom-red">Delete</div></td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                        <p style={{color: "#e83e8c" }} className="mt-4 mb-1">
+                        {messages.length === 0 ? "No Messages":""}
+                        </p>
+                        {messages.map((message, i) =>
+                            <div className="col-md-12 mt-2 mb-2 message-card" key={i}>
+                                <div className="pt-1">
+                                    <div style={{ fontStyle: "italic" }} className="mt-1 mb-1">"{message.message}"</div>
+                                    <div style={{ color: "#61dafb" }} className="mb-2">{moment(message.created_date).format("DD MMMM YYYY h:mm A")}</div>
+                                    <div className="btn btn-sm btn-custom-red mb-1 mt-1" data-message_id={message._id} onClick={deleteMessage}>Delete</div>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

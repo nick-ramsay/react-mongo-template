@@ -44,13 +44,15 @@ body {
 }
 
 .btn-custom-red {
-  background-color: #e83e8c;
-  color: white;
+  color: #e83e8c;
+  background-color: inherit;
+  border-color: #e83e8c;
 }
 
 .btn-custom-red:hover {
-  background-color: #cd186b;
-  color: white;
+  color: #cd186b;
+  background-color: inherit;
+  border-color: #cd186b;
 }
 
 .btn-custom-red:focus {

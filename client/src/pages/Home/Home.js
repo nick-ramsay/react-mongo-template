@@ -17,11 +17,13 @@ const Home = () => {
         });
     }
 
-    const saveMessage = () => {
+    const saveMessage = (event) => {
         if (newMessage !== "") {
             API.createMessage(newMessage, new Date()).then(
-                res => console.log(res.data),
-                renderMessages()
+                res => 
+                    console.log(res.data),
+                    renderMessages(),
+                    document.getElementById('messageInput').value = ""
             );
         }
     };
@@ -62,8 +64,8 @@ const Home = () => {
                                 </div>
                             </div>
                         </form>
-                        <p style={{color: "#e83e8c" }} className="mt-4 mb-1">
-                        {messages.length === 0 ? "No Messages":""}
+                        <p style={{ color: "#e83e8c" }} className="mt-4 mb-1">
+                            {messages.length === 0 ? "No Messages" : ""}
                         </p>
                         {messages.map((message, i) =>
                             <div className="col-md-12 mt-2 mb-2 message-card" key={i}>

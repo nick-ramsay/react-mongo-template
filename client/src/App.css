@@ -30,13 +30,12 @@ body {
 }
 
 .btn-custom {
-  background-color: #2EA7C8;
-  color: white;
+  background-color: #61dafb;
+  color: #282c34;
 }
 
 .btn-custom:hover {
-  background-color: #158EAF;
-  color: white;
+  background-color: #2EA7C8;
 }
 
 .btn-custom:focus {
@@ -50,9 +49,9 @@ body {
 }
 
 .btn-custom-red:hover {
-  color: #cd186b;
-  background-color: inherit;
-  border-color: #cd186b;
+  color: #343a40;
+  background-color: #e83e8c;
+  border-color: #e83e8c;
 }
 
 .btn-custom-red:focus {

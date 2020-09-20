@@ -29,7 +29,19 @@ app.use(function(req, res, next) {
 app.use(routes);
 
 // Connect to the Mongo DB
+
+
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://dbRmt:xYeqLffWlf7PRsFQ@cluster0.qufx7.mongodb.net/react-mongo-template?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true});
+client.connect(err => {
+  const collection = client.db("react-mongo-template").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
+
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/react-mongo-template", { useNewUrlParser: true, useUnifiedTopology: true });
+
 
 // Start the API server
 app.listen(PORT, function() {

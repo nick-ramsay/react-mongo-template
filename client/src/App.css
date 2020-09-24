@@ -9,6 +9,10 @@ body {
   justify-content: center;
 }
 
+.btn {
+  border-radius: 0;
+}
+
 .App {
   text-align: center;
   display: flex;

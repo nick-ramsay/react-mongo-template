@@ -61,7 +61,7 @@ const Home = () => {
                             </div>
                             <div className="form-row text-center">
                                 <div className="col mt-3">
-                                    <div type="button" className="btn btn-sm btn-custom" onClick={saveMessage}>Submit</div>
+                                    <div type="button" className="btn btn-custom" onClick={saveMessage}>Submit</div>
                                 </div>
                             </div>
                         </form>

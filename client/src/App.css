@@ -9,10 +9,6 @@ body {
   justify-content: center;
 }
 
-.btn {
-  border-radius: 0;
-}
-
 .App {
   text-align: center;
   display: flex;
@@ -34,6 +30,10 @@ body {
   border-color: #61dafb;
 }
 
+.btn {
+  border-radius: 0;
+}
+
 .btn-custom {
   background-color: #61dafb;
   color: #282c34;
@@ -41,9 +41,10 @@ body {
 
 .btn-custom:hover {
   background-color: #2EA7C8;
-}
+}       
 
 .btn-custom:focus {
+  background-color: #2EA7C8;
   box-shadow: none;
 }
 
@@ -60,6 +61,9 @@ body {
 }
 
 .btn-custom-red:focus {
+  color: #343a40;
+  background-color: #e83e8c;
+  border-color: #e83e8c;
   box-shadow: none;
 }
 
@@ -88,6 +92,11 @@ body {
 
 .App-link {
   color: #61dafb;
+}
+
+.App-link:hover, .App-link:focus {
+  color: #2EA7C8;
+  text-decoration: none;
 }
 
 @keyframes App-logo-spin {

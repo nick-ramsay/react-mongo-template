@@ -29,7 +29,7 @@
     "express": "^4.17.1",
     "if-env": "^1.0.4",
     "mongodb": "^3.6.2",
-    "mongoose": "^5.10.4",
+    "mongoose": "^5.10.6",
     "nodemon": "^2.0.4"
   }
 }

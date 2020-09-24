@@ -1,6 +1,8 @@
 const express = require("express");
 
+const {MongoClient} = require('mongodb');
 const mongoose = require("mongoose");
+
 const routes = require("./routes");
 
 const PORT = process.env.PORT || 3001;
@@ -24,12 +26,28 @@ app.use(function(req, res, next) {
   next();
 });
 
+//MongoDB Atlas UN/PW: dbRmt/lq1D1578G1w05c0g
+
+//mongodb+srv://dbRmt:lq1D1578G1w05c0g@cluster0.qufx7.mongodb.net/<dbname>?retryWrites=true&w=majority
 
 // Add routes, both API and view 
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/react-mongo-template", { useNewUrlParser: true, useUnifiedTopology: true });
+
+//mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/react-mongo-template", { useNewUrlParser: true, useUnifiedTopology: true });
+
+//const MongoClient = require('mongodb').MongoClient;
+const uri = 'mongodb+srv://dbRmt:lq1D1578G1w05c0g@cluster0.qufx7.mongodb.net/test?retryWrites=true&w=majority';
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
+
+
+//mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/react-mongo-template", { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Start the API server
 app.listen(PORT, function() {

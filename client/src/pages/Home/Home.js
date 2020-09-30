@@ -3,6 +3,7 @@ import { useInput } from '../../sharedFunctions/sharedFunctions';
 import API from "../../utils/API";
 import moment from 'moment';
 import logo from '../../../src/logo.svg';
+import mongoLogo from '../../images/mongo_logo.png';
 import "./style.css";
 
 const Home = () => {
@@ -53,6 +54,7 @@ const Home = () => {
                 <header className="App-header">
                     <h1>React MongoDB Template</h1>
                     <img src={logo} className="App-logo" alt="logo" />
+                    <img src={mongoLogo} className="mongo-logo mr-5" alt="mongo_logo" />
                     <p>Edit <code>src/App.js</code> and save to reload.</p>
                     <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">Learn React</a>
                 </header>

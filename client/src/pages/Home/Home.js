@@ -1,10 +1,12 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useInput } from '../../sharedFunctions/sharedFunctions';
 import API from "../../utils/API";
 import moment from 'moment';
 import logo from '../../../src/logo.svg';
+import GithubLogo from '../../images/github_logos/GitHub_Logo_White.png';
 import mongoLogo from '../../images/mongo_logo.png';
 import "./style.css";
+
 
 const Home = () => {
 
@@ -14,7 +16,6 @@ const Home = () => {
     const renderMessages = () => {
         API.findAllMessages().then(
             (res) => {
-                console.log(res.data);
                 setMessages(messages => res.data);
             }
         );
@@ -24,7 +25,6 @@ const Home = () => {
         if (newMessage !== "") {
             API.createMessage(newMessage, new Date()).then(
                 (res) => {
-                    //console.log(res.data);
                     renderMessages();
                     document.getElementById('messageInput').value = "";
                 }
@@ -33,29 +33,26 @@ const Home = () => {
     };
 
     const deleteMessage = (event) => {
-        console.log(event.currentTarget.dataset.message_id);
         let messageDeletionID = event.currentTarget.dataset.message_id;
         API.deleteOneMessage(messageDeletionID).then(
             (res) => {
-                console.log(res.data);
                 renderMessages();
             }
         );
     }
 
     useEffect(() => {
-        console.log("Use effect called...");
         renderMessages();
     }, [])
 
     return (
         <div>
             <div className="App">
-                <header className="App-header">
+                <header className="App-header p-4">
                     <h1>React MongoDB Template</h1>
                     <img src={logo} className="App-logo" alt="logo" />
                     <img src={mongoLogo} className="mongo-logo mr-5" alt="mongo_logo" />
-                    <p>Edit <code>src/App.js</code> and save to reload.</p>
+                    <p>Edit <code>src/pages/Home/Home.js</code> and save to reload.</p>
                     <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">Learn React</a>
                 </header>
                 <div className="container">
@@ -68,12 +65,12 @@ const Home = () => {
                             </div>
                             <div className="form-row text-center">
                                 <div className="col mt-3">
-                                    <div type="button" className="btn btn-custom" onClick={saveMessage}>Submit</div>
+                                    <div type="button" className="btn btn-custom" tabIndex="0" onClick={saveMessage}>Submit</div>
                                 </div>
                             </div>
                         </form>
-                        <p style={{ color: "#e83e8c" }} className="mt-4 mb-1">
-                            {messages.length === 0 ? "No Messages" : ""}
+                        <p style={{ color: "#e83e8c" }} className="mt-3 mb-1">
+                            {messages.length === 0 ? "No Messages" : messages.length + (messages.length > 1 ? " messages" : " message")}
                         </p>
                         {messages.map((message, i) =>
                             <div className="col-md-12 mt-2 mb-2 message-card" key={i}>
@@ -85,11 +82,15 @@ const Home = () => {
                             </div>
                         )}
                     </div>
+                    <div className="col-md-12 pt-3 pb-3">
+                        <a href="https://github.com/nick-ramsay/react-mongo-template" target="_blank" rel="noopener noreferrer" title="Check out this repo on GitHub!" className="github-link">
+                            <img className="github-logo" src={GithubLogo} alt="GitHub_logo" />
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     )
-
 }
 
 export default Home;

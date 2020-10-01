@@ -51,7 +51,7 @@ const Home = () => {
                 <header className="App-header p-4">
                     <h1>React MongoDB Template</h1>
                     <img src={logo} className="App-logo" alt="logo" />
-                    <img src={mongoLogo} className="mongo-logo mr-5" alt="mongo_logo" />
+                    <img src={mongoLogo} className="mongo-logo" alt="mongo_logo" />
                     <p>Edit <code>src/pages/Home/Home.js</code> and save to reload.</p>
                     <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">Learn React</a>
                 </header>

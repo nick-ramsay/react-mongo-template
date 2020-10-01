@@ -32,7 +32,7 @@ app.use(routes);
 
 // Connect to the Mongo DB
 
-const connection = keys.mongodb.mongo_connection.toString();
+const connection = (process.env.NODE_ENV === "production" ? process.env.MONGO_URI:keys.mongodb.mongo_uri);
 
 mongoose.connect(connection, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
   .then(() => console.log("Database Connected Successfully"))

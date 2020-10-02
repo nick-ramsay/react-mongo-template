@@ -32,11 +32,15 @@ app.use(routes);
 
 // Connect to the Mongo DB
 
-const connection = (process.env.NODE_ENV === "production" ? process.env.MONGO_URI:keys.mongodb.mongo_uri);
+const connection = (process.env.NODE_ENV === "production" ? process.env.MONGO_URI : keys.mongodb.mongo_uri);
 
-mongoose.connect(connection, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
-  .then(() => console.log("Database Connected Successfully"))
-  .catch(err => console.log(err));
+if (process.env.NODE_ENV === "production") {
+  mongoose.connect(connection, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
+    .then(() => console.log("Database Connected Successfully"))
+    .catch(err => console.log(err));
+} else {
+  mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/react-mongo-template", { useNewUrlParser: true, useUnifiedTopology: true });
+}
 
 //Start the API server
 app.listen(PORT, function () {

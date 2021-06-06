@@ -39,7 +39,8 @@ if (process.env.NODE_ENV === "production") {
     .then(() => console.log("Database Connected Successfully"))
     .catch(err => console.log(err));
 } else {
-  mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/react-mongo-template", { useNewUrlParser: true, useUnifiedTopology: true });
+  mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/react-mongo-template", { useNewUrlParser: true, useUnifiedTopology: true }); // <-- Dev/Prod connection
+  //mongoose.connect(process.env.MONGODB_URI || "mongodb://mongo/react-mongo-template", { useNewUrlParser: true, useUnifiedTopology: true }); // <-- Docker build connection
 }
 
 //Start the API server

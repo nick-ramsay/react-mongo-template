@@ -39,7 +39,7 @@ app.use(routes);
 const connection = (process.env.NODE_ENV === "production" ? process.env.MONGO_URI : keys.mongodb.mongo_uri);
 
 if (process.env.NODE_ENV === "production") {
-  mongoose.connect(connection, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
+  mongoose.connect(connection, {})
     .then(() => console.log("Database Connected Successfully"))
     .catch(err => console.log(err));
 } else {

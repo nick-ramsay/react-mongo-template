@@ -19,7 +19,7 @@ datadogRum.init({
     trackResources: true,
     trackLongTasks: true,
     defaultPrivacyLevel:'mask-user-input',
-    allowedTracingUrls: ["http://localhost:3001/", 'http://react-mongo-template.herokuapp.com/']
+    allowedTracingUrls: ["http://localhost:3001/", "https://react-mongo-template.herokuapp.com/"]
 });
     
 datadogRum.startSessionReplayRecording();

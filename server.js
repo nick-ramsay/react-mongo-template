@@ -1,5 +1,8 @@
+const tracer = require('dd-trace').init();
+
 const express = require("express");
 const mongoose = require('mongoose');
+
 require("dotenv").config();
 
 const keys = require('./keys');
@@ -21,11 +24,12 @@ if (process.env.NODE_ENV === "production") {
 //Setting headers for CORS Policies
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Credentials");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Credentials, x-datadog-origin, x-datadog-sampling-priority, x-datadog-parent-id, x-datadog-trace-id");
   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, PATCH, DELETE");
   res.header("Access-Control-Allow-Credentials", "true");
   next();
 });
+
 
 // Add routes, both API and view 
 app.use(routes);
@@ -39,8 +43,7 @@ if (process.env.NODE_ENV === "production") {
     .then(() => console.log("Database Connected Successfully"))
     .catch(err => console.log(err));
 } else {
-  mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/react-mongo-template", { useNewUrlParser: true, useUnifiedTopology: true }); // <-- Dev/Prod connection
-  //mongoose.connect(process.env.MONGODB_URI || "mongodb://mongo/react-mongo-template", { useNewUrlParser: true, useUnifiedTopology: true }); // <-- Docker build connection
+  mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1/react-mongo-template", { useNewUrlParser: true, useUnifiedTopology: true });
 }
 
 //Start the API server

@@ -1,4 +1,5 @@
 import React from "react";
+import keys from "./keys";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 
@@ -7,8 +8,8 @@ import Home from "../src/pages/Home/Home";
 import { datadogRum } from '@datadog/browser-rum';
 
 datadogRum.init({
-    applicationId: '47f005cd-cfa6-4861-847d-9faa739f8934',
-    clientToken: 'pub2247e42dc6fc8ca8fc08c1ecc470e646',
+    applicationId: keys.ddrum.react_rum_application_id,
+    clientToken: keys.ddrum.react_rum_client_token,
     site: 'datadoghq.com',
     service:'react-mongo-template',
     env:'staging', 

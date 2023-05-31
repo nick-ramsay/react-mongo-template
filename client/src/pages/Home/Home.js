@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useInput } from '../../sharedFunctions/sharedFunctions';
+import { } from '../../sharedFunctions/sharedFunctions';
 import API from "../../utils/API";
 import moment from 'moment';
 import logo from '../../../src/logo.svg';
@@ -10,7 +10,6 @@ import "./style.css";
 
 const Home = () => {
 
-    var [newMessage, setNewMessage] = useInput("");
     var [messages, setMessages] = useState([]);
 
     const renderMessages = () => {
@@ -22,6 +21,7 @@ const Home = () => {
     }
 
     const saveMessage = (event) => {
+        let newMessage = document.getElementById('messageInput').value
         if (newMessage !== "") {
             API.createMessage(newMessage, new Date()).then(
                 (res) => {
@@ -60,7 +60,7 @@ const Home = () => {
                         <form className="mt-3">
                             <div className="form-row text-center">
                                 <div className="col">
-                                    <input type="text" placeholder="Enter your message here" className="form-control" id="messageInput" name="messageInput" onChange={setNewMessage} aria-describedby="messageHelp" />
+                                    <input type="text" placeholder="Enter your message here" className="form-control" id="messageInput" name="messageInput" aria-describedby="messageHelp" />
                                 </div>
                             </div>
                             <div className="form-row text-center">

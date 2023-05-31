@@ -1,9 +1,12 @@
 # react-mongo-template
+### Introduction
+### Prerequisites
+* Installed Git:
+* Install Node.js:
+* Installed Mongo Compass:
 
-This is a simple, full stack Node.js application using React, Express and MongoDB. 
-
-The purpose of the application is to be used as a starting point to begin building a new full stack React application with MongoDB as the database solution. The repository can be cloned and configured to save the time normally required to set up the foundational code required for a functioning MERN application.
-
-The functionality of the template can be tested by adding and deleting messages on the page.
-
-More details will be added to this readme file shortly, detailing all packages and functionality.
+### Installation Instructions
+1. Pull git repo
+2. Navigate to Datadog and create a new RUM application named `react-mongo-template`
+3. Create `.env` file in root directory (`clientToken` and `applicationId`)
+4. Create `.env` file in `client` directory (`DD_API_KEY`)

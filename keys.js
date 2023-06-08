@@ -1,3 +1,3 @@
 exports.mongodb = {
-    mongo_uri: process.env.mongo_uri
+    mongo_uri: process.env.MONGO_URI
 };

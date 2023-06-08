@@ -36,14 +36,14 @@ app.use(routes);
 
 // Connect to the Mongo DB
 
-const connection = (process.env.NODE_ENV === "production" ? process.env.MONGO_URI : keys.mongodb.mongo_uri);
+const connection = (process.env.NODE_ENV === "production" ? process.env.mongo_uri : keys.mongodb.mongo_uri);
 
 if (process.env.NODE_ENV === "production") {
   mongoose.connect(connection, {})
     .then(() => console.log("Database Connected Successfully"))
     .catch(err => console.log(err));
 } else {
-  mongoose.connect(process.env.MONGODB_URI || "mongodb://127.0.0.1/react-mongo-template", { useNewUrlParser: true, useUnifiedTopology: true });
+  mongoose.connect(process.env.mongo_uri || keys.mongodb.mongo_uri, { useNewUrlParser: true, useUnifiedTopology: true });
 }
 
 //Start the API server

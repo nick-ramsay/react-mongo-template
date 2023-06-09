@@ -5,7 +5,9 @@
 * Install [Git](https://git-scm.com/) on your laptop
 * Install a code editor on your laptop such as [Visual Studio](https://code.visualstudio.com/) or [Sublime](https://www.sublimetext.com/)
 * Install [Node.js](https://nodejs.org/en)
-* Installed [Mongo Compass](https://www.mongodb.com/products/compass)
+* Install [Mongo DB Community Edition](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/#install-mongodb-community-edition)
+* Start [Mongo DB Community Edition](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/#run-mongodb-community-edition)
+* Install [Mongo Compass](https://www.mongodb.com/products/compass)
 
 ### Installation Instructions
 1. Open your terminal and navigate to the directory in which you would like this application to be located. Run the following command to clone the repository on your local machine: `git clone https://github.com/nick-ramsay/react-mongo-template.git`

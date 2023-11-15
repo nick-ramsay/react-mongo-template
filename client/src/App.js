@@ -13,7 +13,7 @@ datadogRum.init({
     site: 'datadoghq.com',
     service:'react-mongo-template',
     env:'staging', 
-    version: '1.0.0',
+    version: '1.0.20',
     sessionSampleRate: 100,
     sessionReplaySampleRate: 20,
     trackUserInteractions: true,

@@ -23,6 +23,8 @@ const Home = () => {
         renderMessages();
         document.getElementById("messageInput").value = "";
       });
+    } else if (newMessage === "") {
+      throw new Error("Test Error: Message input is empty");
     }
   };
 

@@ -1,5 +1,5 @@
 const tracer = require('dd-trace').init({profiling: true, env: 'staging', service: 'react-mongo-template-server'});
-
+const express = require("express");
 const mongoose = require('mongoose');
 
 require("dotenv").config();

@@ -1,5 +1,13 @@
 const tracer = require('dd-trace').init({profiling: true, env: 'staging', service: 'react-mongo-template-server'});
 
+tracer.use('express', {
+  hooks: {
+    request: (span, req, res) => {
+      span.setTag('ownership.team', 'nicks_test_team')
+    }
+  }
+})
+
 const express = require("express");
 const mongoose = require('mongoose');
 

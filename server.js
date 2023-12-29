@@ -1,14 +1,5 @@
 const tracer = require('dd-trace').init({profiling: true, env: 'staging', service: 'react-mongo-template-server'});
 
-tracer.use('express', {
-  hooks: {
-    request: (span, req, res) => {
-      span.setTag('ownership.team', 'nicks_test_team')
-    }
-  }
-})
-
-const express = require("express");
 const mongoose = require('mongoose');
 
 require("dotenv").config();
@@ -19,6 +10,14 @@ const routes = require("./routes");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
+
+tracer.use('express', {
+  hooks: {
+    request: (span, req, res) => {
+      span.setTag('ownership.team', 'nicks_test_team')
+    }
+  }
+})
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));

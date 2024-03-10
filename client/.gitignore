@@ -19,6 +19,7 @@ source_map_upload_commands.txt
 .env.development.local
 .env.test.local
 .env.production.local
+.env
 
 npm-debug.log*
 yarn-debug.log*

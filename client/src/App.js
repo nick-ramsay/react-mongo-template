@@ -16,7 +16,7 @@ datadogRum.init({
   version: '1.0.24',
   sessionSampleRate: 100,
   sessionReplaySampleRate: 100,
-  traceSampleRate: 10,
+  traceSampleRate: 100,
   trackUserInteractions: true,
   trackResources: true,
   trackLongTasks: true,

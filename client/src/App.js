@@ -23,29 +23,25 @@ datadogRum.init({
   defaultPrivacyLevel: 'mask-user-input',
   //allowedTracingUrls: ["http://localhost:3001/", "https://react-mongo-template.herokuapp.com/"],
   /*allowedTracingUrls: [
-    { match: [/https:\/\/qa\.ascap\.com/, /https:\/\/ma-api-qa\.ascap\.com/], propagatorTypes: ["datadog"]}
+    { match: [/http:\/\/localhost:3001/, /https\:\/\/react-mongo-template\.herokuapp\.com/], propagatorTypes: ["datadog"] }
   ]*/
   allowedTracingUrls: [
-    { match: [/http:\/\/localhost\:3001/, /https\:\/\/react-mongo-template\.herokuapp\.com/], propagatorTypes: ["traceparent"] }
+    { match: /http:\/\/localhost:3001/, propagatorTypes: ["datadog"] },
+    { match: /https\:\/\/react-mongo-template\.herokuapp\.com/, propagatorTypes: ["datadog"] }
   ]
-/*
-allowedTracingUrls: [
-  { match: /http:\/\/localhost\:3001/, propagatorTypes: ["traceparent"]},
-  { match: /https\:\/\/react-mongo-template\.herokuapp\.com/, propagatorTypes: ["traceparent"]}
-]
-*/
+
 });
-  
+
 datadogRum.startSessionReplayRecording();
 
 function App() {
-return (
-  <Router>
-    <Routes>
+  return (
+    <Router>
+      <Routes>
         <Route exact path="/" element={<Home />} />
-    </Routes>
-  </Router>
-);
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;

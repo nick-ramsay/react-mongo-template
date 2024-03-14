@@ -4,7 +4,7 @@ const tracer = require('dd-trace').init({
   service: 'react-mongo-template-server',
   ingestion: {
     // Any traces started will be sampled at 1.00% with a rate limit of 100 per second
-    sampleRate: 0.0100
+    sampleRate: 1.0000
   }});
 const express = require("express");
 const mongoose = require('mongoose');

@@ -1,11 +1,12 @@
 const tracer = require('dd-trace').init({
-  profiling: true, 
-  env: 'staging', 
+  profiling: true,
+  env: 'staging',
   service: 'react-mongo-template-server',
   ingestion: {
     // Any traces started will be sampled at 1.00% with a rate limit of 100 per second
     sampleRate: 1.0000
-  }});
+  }
+});
 const express = require("express");
 const mongoose = require('mongoose');
 
@@ -51,14 +52,16 @@ app.use(routes);
 
 // Connect to the Mongo DB
 
-const connection = (process.env.NODE_ENV === "production" ? process.env.mongo_uri : keys.mongodb.mongo_uri);
+const connection = (process.env.NODE_ENV === "production" ? keys.mongodb.mongo_atlas_uri : keys.mongodb.mongo_uri);
 
 if (process.env.NODE_ENV === "production") {
   mongoose.connect(connection, {})
-    .then(() => console.log("Database Connected Successfully"))
+    .then(() => console.log("🌐💽 ==> Atlas Database Connected Successfully"))
     .catch(err => console.log(err));
 } else {
-  mongoose.connect(process.env.mongo_uri || keys.mongodb.mongo_uri, { useNewUrlParser: true, useUnifiedTopology: true });
+  mongoose.connect(process.env.mongo_uri || keys.mongodb.mongo_uri, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log("💽 ==> Local Database Connected Successfully"))
+    .catch(err => console.log(err));
 }
 
 //Start the API server

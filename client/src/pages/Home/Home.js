@@ -35,6 +35,27 @@ const Home = () => {
     });
   };
 
+  const saveNewMessageEnterKey = () => {
+    var input = document.getElementById("messageInput");
+    var saveBtn = document.getElementById("submitNewMessageBtn");
+
+    input.addEventListener("keypress", (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("submitNewMessageBtn").click();
+        input.focus();
+      }
+    });
+
+    saveBtn.addEventListener("keypress", (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("submitNewMessageBtn").click();
+        input.focus();
+      }
+    });
+  }
+
   useEffect(() => {
     renderMessages();
   }, []);
@@ -85,13 +106,16 @@ const Home = () => {
                 <div className="col mt-3">
                   <div
                     type="button"
-                    className="btn btn-custom"
+                    id="submitNewMessageBtn"
+                    className="btn btn-sm btn-custom"
                     tabIndex="0"
                     onClick={saveMessage}
+                    onKeyUp={saveNewMessageEnterKey}
+                    data-dd-action-name="Clicked Custom Action Button Again"
                   >
                     Submit
                   </div>
-                </div>
+                  </div>
               </div>
             </form>
             <p style={{ color: "#e83e8c" }} className="mt-3 mb-1">

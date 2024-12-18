@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiURL = process.env.NODE_ENV === 'production' ? '//localhost:3001' : '//localhost:3001'
+const apiURL = process.env.NODE_ENV === 'production' ? 'https://react-mongo-template.herokuapp.com' : '//localhost:3001'
 
 export default {
     createMessage: function (message, created_date) {

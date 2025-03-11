@@ -8,6 +8,7 @@ const tracer = require('dd-trace').init({
   }
 });
 const express = require("express");
+const cors = require("cors");
 const mongoose = require('mongoose');
 
 require("dotenv").config();
@@ -37,8 +38,14 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //Setting headers for CORS Policies
+
+/*
+app.use(cors({
+  origin: "http://localhost:3000"
+}));
+*/
 app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
   res.header("Timing-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Credentials, x-datadog-origin, x-datadog-sampling-priority, x-datadog-parent-id, x-datadog-trace-id, Timing-Allow-Origin, traceparent");
   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, PATCH, DELETE");

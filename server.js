@@ -44,8 +44,21 @@ app.use(cors({
   origin: "http://localhost:3000"
 }));
 */
+
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://react-mongo-template.herokuapp.com"
+];
+
 app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  const origin = req.headers.origin;
+
+  if (allowedOrigins.includes(origin)) {
+    res.header("Access-Control-Allow-Origin", origin);
+  }
+
+
+  res.header("Access-Control-Allow-Origin", origin);
   res.header("Timing-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Credentials, x-datadog-origin, x-datadog-sampling-priority, x-datadog-parent-id, x-datadog-trace-id, Timing-Allow-Origin, traceparent");
   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, PATCH, DELETE");
